@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De-Escalating Difficult Customer Interactions</title>
+<style>
+:root{--navy:#18324a;--blue:#2f6f9f;--light:#eef5f9;--accent:#e6a23c;--text:#24323d;--muted:#657580;--white:#fff;--green:#2f855a}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:var(--text);line-height:1.55}
+header{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:28px 5%;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px #0002}
+header h1{margin:0 0 6px;font-size:clamp(22px,3vw,34px)} header p{margin:0;opacity:.92}
+.wrap{max-width:1050px;margin:auto;padding:28px 18px 70px}
+.progress{height:9px;background:#dbe2e7;border-radius:10px;overflow:hidden;margin:0 0 22px}.bar{height:100%;background:var(--accent);width:0%;transition:.3s}
+.card{background:white;border-radius:14px;padding:30px;box-shadow:0 5px 20px #18324a14;margin-bottom:20px}
+h2{color:var(--navy);margin-top:0} h3{color:var(--blue)}
+.outcomes li{margin:10px 0}.pill{display:inline-block;background:var(--light);color:var(--navy);padding:7px 12px;border-radius:20px;font-weight:bold;margin:4px}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+button{border:0;border-radius:9px;padding:12px 18px;font-weight:bold;cursor:pointer;font-size:15px}
+.primary{background:var(--blue);color:white}.secondary{background:#e8edf0;color:var(--navy)}button:disabled{opacity:.45;cursor:not-allowed}
+.step{display:none}.step.active{display:block}
+.model{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+.model div{background:var(--light);border-top:5px solid var(--blue);padding:18px;border-radius:10px}.model strong{display:block;font-size:20px;color:var(--navy)}
+.warning{background:#fff6e5;border-left:5px solid var(--accent);padding:16px;border-radius:8px}.good{background:#eaf7ef;border-left:5px solid var(--green);padding:16px;border-radius:8px}
+.option{display:block;width:100%;text-align:left;background:#f7f9fa;border:2px solid #d8e0e5;margin:10px 0}.option:hover{border-color:var(--blue)} .option.correct{border-color:var(--green);background:#eaf7ef}.option.incorrect{border-color:#c05640;background:#fff0ed}
+.feedback{padding:14px;border-radius:8px;margin-top:12px;display:none}.feedback.show{display:block}
+.quizq{border-top:1px solid #ddd;padding:20px 0}.quizq:first-child{border-top:0}
+textarea,input[type=text]{width:100%;padding:12px;border:1px solid #cbd5db;border-radius:8px;font:inherit}
+.range-row{display:flex;align-items:center;gap:12px;margin:12px 0}.range-row input{flex:1}
+.score{font-size:24px;font-weight:bold;color:var(--navy)}
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
+@media(max-width:700px){.model{grid-template-columns:1fr 1fr}.card{padding:22px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>De-Escalating Difficult Customer Interactions</h1>
+  <p>Self-paced customer service training • Approximately 10–15 minutes</p>
+</header>
+<div class="wrap">
+  <div class="progress"><div class="bar" id="bar"></div></div>
+
+  <section class="step active">
+    <div class="card">
+      <span class="pill">Welcome</span><span class="pill">10–15 minutes</span><span class="pill">Self-paced</span>
+      <h2>Welcome to the Training</h2>
+      <p>Dealing with an angry or frustrated customer can be one of the most challenging parts of customer service. The way a representative responds can either increase tension or help move the conversation toward a productive solution.</p>
+      <p>This short training introduces practical techniques for remaining professional, understanding the customer's concern, and moving the interaction toward an appropriate resolution.</p>
+      <div class="good"><strong>Course goal:</strong> Build practical skills for handling difficult customer interactions with professionalism, empathy, and clear communication.</div>
+      <div class="nav"><span></span><button class="primary" onclick="next()">Start Training →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>Learning Outcomes</h2>
+      <p><strong>Upon completion of the training, you will be able to:</strong></p>
+      <ol class="outcomes">
+        <li><strong>Identify</strong> common causes of customer frustration.</li>
+        <li><strong>Recognize</strong> communication behaviors that may increase tension.</li>
+        <li><strong>Demonstrate</strong> three techniques for de-escalating an upset customer.</li>
+        <li><strong>Apply</strong> a four-step de-escalation process to a customer scenario.</li>
+        <li><strong>Select</strong> appropriate responses when handling an irate customer.</li>
+      </ol>
+      <div class="warning"><strong>Why this matters:</strong> Effective de-escalation can help representatives maintain professionalism, improve customer interactions, and create opportunities to resolve problems more effectively.</div>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button class="primary" onclick="next()">Continue →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>1. Understanding Customer Frustration</h2>
+      <p>Customers may become frustrated for many reasons, including:</p>
+      <ul><li>Service interruptions</li><li>Billing problems</li><li>Long wait times</li><li>Having to contact the company multiple times</li><li>Confusing policies or procedures</li><li>Previous unsuccessful interactions</li><li>Feeling that nobody is listening</li><li>Expectations that were not met</li></ul>
+      <p>An upset customer may speak loudly, interrupt, repeat themselves, or use emotional language.</p>
+      <div class="good"><strong>Key takeaway:</strong> The customer's frustration does not necessarily mean the representative caused the problem. Focus on understanding the concern and helping move the conversation toward a solution.</div>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button class="primary" onclick="next()">Continue →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>2. Avoid Adding Fuel to the Fire</h2>
+      <p>Some responses can make a difficult interaction worse.</p>
+      <div class="warning"><ul><li>Do not repeatedly interrupt the customer.</li><li>Do not tell the customer to “calm down.”</li><li>Do not argue about who is right.</li><li>Do not blame another employee or department.</li><li>Do not use sarcastic or defensive language.</li><li>Do not make promises you cannot keep.</li></ul></div>
+      <p>Instead, focus on <strong>listening, acknowledging, clarifying, and resolving.</strong></p>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button class="primary" onclick="next()">Continue →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>3. The L.A.C.R. De-Escalation Process</h2>
+      <p>Use these four steps when handling an upset customer:</p>
+      <div class="model">
+        <div><strong>1. LISTEN</strong>Give the customer an opportunity to explain the problem. Avoid unnecessary interruptions.</div>
+        <div><strong>2. ACKNOWLEDGE</strong>Show the customer that you heard and understand the concern.</div>
+        <div><strong>3. CLARIFY</strong>Ask questions to make sure you understand what happened and what is needed.</div>
+        <div><strong>4. RESOLVE</strong>Explain what you can do, available options, and realistic expectations.</div>
+      </div>
+      <div class="good"><strong>Remember:</strong> Listen → Acknowledge → Clarify → Resolve</div>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button class="primary" onclick="next()">Continue →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>4. Technique: Listen</h2>
+      <p>One common mistake is trying to solve the problem before completely understanding it.</p>
+      <h3>Effective listening includes:</h3>
+      <ul><li>Allowing the customer to explain the situation</li><li>Paying attention to important details</li><li>Asking relevant questions</li><li>Avoiding unnecessary interruptions</li><li>Summarizing the issue before moving forward</li></ul>
+      <div class="warning"><strong>Example:</strong><br><br>
+      Customer: “I've already called twice, and nobody has fixed this!”<br><br>
+      <strong>Better response:</strong> “I understand you've already contacted us twice. Let me review what happened so I can determine the next step.”
+      </div>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button class="primary" onclick="next()">Continue →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>5. Technique: Acknowledge</h2>
+      <p>Acknowledgment shows the customer that you heard their concern.</p>
+      <h3>Useful phrases</h3>
+      <ul><li>“I understand why that would be frustrating.”</li><li>“I can see why this situation has been frustrating.”</li><li>“Thank you for explaining what happened.”</li><li>“I understand that you have already contacted us about this.”</li></ul>
+      <div class="good"><strong>Remember:</strong> Empathy is not the same as agreeing with everything the customer says. You can acknowledge frustration while still following company policies and procedures.</div>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button class="primary" onclick="next()">Continue →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>6. Technique: Clarify</h2>
+      <p>After listening and acknowledging, clarify the situation before moving toward a solution.</p>
+      <p>Ask questions that help identify:</p>
+      <ul><li>What happened?</li><li>When did it happen?</li><li>What has already been attempted?</li><li>What does the customer need?</li><li>What can you realistically do?</li></ul>
+      <div class="warning"><strong>Example:</strong> “Let me make sure I have this right. Your service stopped yesterday, you contacted us twice, and the issue has not been resolved. Is that correct?”</div>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button class="primary" onclick="next()">Continue →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>7. Technique: Resolve</h2>
+      <p>Once you understand the problem, explain what you can do.</p>
+      <div class="good"><strong>A good resolution statement is:</strong> Clear + Realistic + Specific</div>
+      <p><strong>Example:</strong> “I have identified the issue. I can submit the request today, and the next step will be completed within the timeframe I just explained.”</p>
+      <p>If you cannot provide the customer's preferred solution, explain the available options. Never promise something you cannot control.</p>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button class="primary" onclick="next()">Continue →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>Practice Scenario</h2>
+      <p><strong>Situation:</strong> A customer calls because their service has been interrupted. The customer says:</p>
+      <div class="warning">“I've called twice already! Nobody here seems to know what they're doing. I don't have time to keep calling about this!”</div>
+      <p><strong>Which response is most appropriate?</strong></p>
+      <button class="option" onclick="scenario(this,false)">A. “There's no reason to speak to me that way. If you want help, you're going to have to calm down.”</button>
+      <button class="option" onclick="scenario(this,true)">B. “I understand you're frustrated after having to contact us more than once. Let me review what happened and see what I can do to move this forward.”</button>
+      <button class="option" onclick="scenario(this,false)">C. “The previous representative should have handled this. I'll transfer you to another department.”</button>
+      <div id="scenarioFeedback" class="feedback"></div>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button id="scenarioNext" class="primary" onclick="next()" disabled>Continue →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>Practice: Put the Process in Order</h2>
+      <p>What is the correct order of the L.A.C.R. process?</p>
+      <button class="option" onclick="order(this,false)">A. Resolve → Listen → Clarify → Acknowledge</button>
+      <button class="option" onclick="order(this,true)">B. Listen → Acknowledge → Clarify → Resolve</button>
+      <button class="option" onclick="order(this,false)">C. Clarify → Listen → Resolve → Acknowledge</button>
+      <div id="orderFeedback" class="feedback"></div>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button id="orderNext" class="primary" onclick="next()" disabled>Continue →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>Final Knowledge Assessment</h2>
+      <p>You need <strong>80%</strong> to pass. Select one answer for each question, then submit.</p>
+      <div id="quiz"></div>
+      <button class="primary" onclick="gradeQuiz()">Submit Assessment</button>
+      <div id="quizResult" class="feedback"></div>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button id="quizNext" class="primary" onclick="next()" disabled>Continue →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>Learner Feedback Survey</h2>
+      <p>Your feedback will help improve this training.</p>
+      <div id="survey">
+        <p><strong>1. The training was easy to understand.</strong></p>
+        <div class="range-row"><span>1</span><input type="range" min="1" max="5" value="5" id="s1"><span>5</span></div>
+        <p><strong>2. The information was relevant to my customer service responsibilities.</strong></p>
+        <div class="range-row"><span>1</span><input type="range" min="1" max="5" value="5" id="s2"><span>5</span></div>
+        <p><strong>3. The examples helped me understand how to de-escalate an upset customer.</strong></p>
+        <div class="range-row"><span>1</span><input type="range" min="1" max="5" value="5" id="s3"><span>5</span></div>
+        <p><strong>4. I feel more confident handling an upset customer after completing this training.</strong></p>
+        <div class="range-row"><span>1</span><input type="range" min="1" max="5" value="5" id="s4"><span>5</span></div>
+        <p><strong>5. The training length was appropriate.</strong></p>
+        <div class="range-row"><span>1</span><input type="range" min="1" max="5" value="5" id="s5"><span>5</span></div>
+        <label><strong>6. What part of the training was most helpful?</strong></label>
+        <textarea id="open1" rows="3"></textarea>
+        <br><br>
+        <label><strong>7. What could be improved?</strong></label>
+        <textarea id="open2" rows="3"></textarea>
+        <br><br>
+        <label><strong>8. What is one technique you plan to use?</strong></label>
+        <textarea id="open3" rows="3"></textarea>
+        <br><br>
+        <label><strong>9. What would you like to see in future training?</strong></label>
+        <textarea id="open4" rows="3"></textarea>
+        <br><br>
+        <button class="primary" onclick="submitSurvey()">Submit Feedback</button>
+        <div id="surveyResult" class="feedback"></div>
+      </div>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><button id="surveyNext" class="primary" onclick="next()" disabled>Finish Course →</button></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="card">
+      <h2>Course Complete!</h2>
+      <div class="good">
+        <h3>Congratulations!</h3>
+        <p>You have completed <strong>De-Escalating Difficult Customer Interactions</strong>.</p>
+      </div>
+      <h3>You learned how to:</h3>
+      <ul><li>Identify common causes of customer frustration</li><li>Listen actively</li><li>Acknowledge customer concerns</li><li>Clarify the problem</li><li>Move toward an appropriate resolution</li><li>Apply de-escalation techniques to customer scenarios</li></ul>
+      <h2 style="text-align:center">LISTEN → ACKNOWLEDGE → CLARIFY → RESOLVE</h2>
+      <p style="text-align:center">Every difficult customer interaction is an opportunity to demonstrate professionalism, empathy, and problem-solving.</p>
+      <div class="nav"><button class="secondary" onclick="prev()">← Back</button><span></span></div>
+    </div>
+  </section>
+
+  <footer>
+    Training topic: Customer De-Escalation • Designed as a short HR Training & Development learning activity
+  </footer>
+</div>
+
+<script>
+let step=0, scenarioDone=false, orderDone=false, quizPassed=false, surveyDone=false;
+const steps=document.querySelectorAll('.step');
+function update(){steps.forEach((s,i)=>s.classList.toggle('active',i===step));document.getElementById('bar').style.width=((step)/(steps.length-1)*100)+'%';window.scrollTo({top:0,behavior:'smooth'});}
+function next(){if(step<steps.length-1){step++;update();}}
+function prev(){if(step>0){step--;update();}}
+function scenario(btn,correct){document.querySelectorAll('.option').forEach(b=>b.classList.remove('correct','incorrect'));btn.classList.add(correct?'correct':'incorrect');let f=document.getElementById('scenarioFeedback');f.className='feedback show '+(correct?'good':'warning');f.innerHTML=correct?'<strong>Correct!</strong> This response acknowledges the customer’s frustration and takes responsibility for moving the issue forward.':'Not quite. This response could increase tension or shift responsibility. Choose the response that listens, acknowledges, and moves toward a solution.';if(correct){scenarioDone=true;document.getElementById('scenarioNext').disabled=false;}}
+function order(btn,correct){document.querySelectorAll('.option').forEach(b=>b.classList.remove('correct','incorrect'));btn.classList.add(correct?'correct':'incorrect');let f=document.getElementById('orderFeedback');f.className='feedback show '+(correct?'good':'warning');f.innerHTML=correct?'<strong>Correct!</strong> The sequence is Listen → Acknowledge → Clarify → Resolve.':'Not quite. Remember: first understand the concern, then acknowledge it, clarify the details, and finally resolve.';if(correct){orderDone=true;document.getElementById('orderNext').disabled=false;}}
+const questions=[
+['What should a representative do first when an angry customer begins explaining a problem?',['Immediately explain company policy','Transfer the customer','Listen and understand the concern','Tell the customer to calm down'],2],
+['Which statement demonstrates acknowledgment?',['That’s not my fault.','You need to calm down.','I understand why this situation is frustrating.','That’s just our policy.'],2],
+['Why is clarification important?',['It allows the representative to avoid solving the problem.','It ensures the representative understands the actual issue.','It gives the representative a reason to transfer the customer.','It allows the representative to end the call faster.'],1],
+['What should you do when you cannot provide the customer’s preferred solution?',['Promise it will definitely be fixed today.','Blame another department.','Explain available options and provide realistic expectations.','Tell the customer there is nothing you can do.'],2],
+['Which sequence represents the L.A.C.R. process?',['Listen → Resolve → Acknowledge → Clarify','Listen → Acknowledge → Clarify → Resolve','Clarify → Listen → Resolve → Acknowledge','Resolve → Listen → Clarify → Acknowledge'],1]
+];
+const qbox=document.getElementById('quiz');
+questions.forEach((q,i)=>{let d=document.createElement('div');d.className='quizq';d.innerHTML='<p><strong>'+(i+1)+'. '+q[0]+'</strong></p>'+q[1].map((a,j)=>'<label style="display:block;margin:8px 0"><input type="radio" name="q'+i+'" value="'+j+'"> '+a+'</label>').join('');qbox.appendChild(d);});
+function gradeQuiz(){let score=0;questions.forEach((q,i)=>{let a=document.querySelector('input[name=q'+i+']:checked');if(a&&+a.value===q[2])score++;});let pct=score/questions.length*100;let r=document.getElementById('quizResult');r.className='feedback show '+(pct>=80?'good':'warning');r.innerHTML='<div class="score">Score: '+score+'/'+questions.length+' ('+pct+'%)</div>'+(pct>=80?'<p><strong>Passed!</strong> You demonstrated an understanding of the core de-escalation techniques.</p>':'<p><strong>Not yet.</strong> Review the L.A.C.R. process and try again. You need 80% to continue.</p>');if(pct>=80){quizPassed=true;document.getElementById('quizNext').disabled=false;}}
+function submitSurvey(){surveyDone=true;let r=document.getElementById('surveyResult');r.className='feedback show good';r.innerHTML='<strong>Thank you!</strong> Your feedback has been recorded in this browser session. Click “Finish Course” to complete the training.';document.getElementById('surveyNext').disabled=false;}
+update();
+</script>
+</body>
+</html>
